@@ -16,9 +16,9 @@ const CollectionGroup = ({
   description,
   products = [],
   titleAlign = 'left',
-  columns = { xs: 2, sm: 3, md: 4 },
-  gap = 3,
-  aspectRatio = '1/1',
+  columns = { xs: 4, sm: 2.4, md: 2.4 },
+  gap = 2,
+  aspectRatio = '3/4',
   onProductClick,
   sx,
   ...props

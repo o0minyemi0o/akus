@@ -4,16 +4,25 @@ import StaticImage from '../components/media/StaticImage';
 
 const Hero = ({ imageSrc, children, sx, ...props }) => {
   return (
-    <FullBleed minHeight="100vh" {...props} sx={{ position: 'relative', ...sx }}>
-      <StaticImage
-        src={imageSrc}
-        alt="Hero"
+    <FullBleed minHeight="100vh" {...props} sx={{ position: 'relative', overflow: 'hidden', ...sx }}>
+      <Box
         sx={{
           width: '100%',
           height: '100vh',
-          objectFit: 'cover',
+          position: 'relative',
         }}
-      />
+      >
+        <StaticImage
+          src={imageSrc}
+          alt="Hero"
+          sx={{
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover',
+            display: 'block',
+          }}
+        />
+      </Box>
       {children && (
         <Box
           sx={{

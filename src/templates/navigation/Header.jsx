@@ -21,10 +21,8 @@ const Header = ({ transparent = true, sx, ...props }) => {
     >
       <Box
         sx={{
-          maxWidth: '1600px',
-          mx: 'auto',
-          px: 4,
           py: 2,
+          pl: 4,
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'flex-start',

@@ -37,13 +37,8 @@ const HeroSection = ({
       {/* Header */}
       <Header transparent={headerTransparent} />
 
-      {/* Hero with optional overlay */}
-      <Hero
-        imageSrc={imageSrc}
-        sx={{
-          pl: showCategoryNav ? { xs: 0, md: 16 } : 0,
-        }}
-      >
+      {/* Hero Image */}
+      <Hero imageSrc={imageSrc}>
         {showBrandWordmark && (
           <BrandWordmark
             sx={{

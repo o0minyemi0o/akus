@@ -11,8 +11,8 @@ import StaticImage from '../components/media/StaticImage';
 const BrandStorySection = ({
   text,
   images = [],
-  imageWidth = '220px',
-  imageHeight = '280px',
+  imageWidth = '240px',
+  imageHeight = '310px',
   gap = 2,
   sx,
   ...props
@@ -28,8 +28,13 @@ const BrandStorySection = ({
       }}
     >
       {/* Motto Text */}
-      <Box sx={{ textAlign: 'center', mb: 6 }}>
-        <MottoText sx={{ fontSize: { xs: '1.125rem', md: '1.5rem' } }}>
+      <Box
+        sx={{
+          textAlign: 'center',
+          mb: 6,
+        }}
+      >
+        <MottoText sx={{ fontSize: { xs: '0.875rem', md: '1.1rem' } }}>
           {text}
         </MottoText>
       </Box>
@@ -39,6 +44,8 @@ const BrandStorySection = ({
         sx={{
           overflowX: 'auto',
           overflowY: 'hidden',
+          width: '100%',
+          maxWidth: '100%',
           // 스크롤바 스타일 (최소한으로)
           '&::-webkit-scrollbar': {
             height: '6px',
@@ -56,8 +63,6 @@ const BrandStorySection = ({
           sx={{
             display: 'flex',
             gap: gap,
-            pl: 4,
-            pr: 4,
             pb: 2,
           }}
         >

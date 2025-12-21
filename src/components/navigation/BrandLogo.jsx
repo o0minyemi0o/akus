@@ -14,7 +14,7 @@ const BrandLogo = ({ sx, ...props }) => {
         ...sx,
       }}
     >
-      <BrandWordmark sx={{ fontSize: '1.5rem', fontWeight: 600 }} />
+      <BrandWordmark sx={{ fontSize: '1.75rem', fontWeight: 600 }} />
     </Box>
   );
 };

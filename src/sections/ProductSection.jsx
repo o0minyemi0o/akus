@@ -1,12 +1,8 @@
 import { Box } from '@mui/material';
 import CollectionGroup from '../templates/CollectionGroup';
-import ContentInset from '../templates/layout/ContentInset';
 
 /**
  * ProductSection - 제품 컬렉션을 표시하는 섹션
- *
- * CollectionGroup을 ContentInset으로 감싸서
- * 페이지 내에서 적절한 여백과 함께 제품을 표시
  */
 const ProductSection = ({
   subtitle,
@@ -14,8 +10,8 @@ const ProductSection = ({
   description,
   products = [],
   titleAlign = 'left',
-  cardWidth = '280px',
-  gap = 3,
+  columns = { xs: 4, sm: 2.4, md: 2.4 },
+  gap = 2,
   aspectRatio = '3/4',
   onProductClick,
   backgroundColor = 'background.default',
@@ -32,19 +28,17 @@ const ProductSection = ({
         ...sx,
       }}
     >
-      <ContentInset maxWidth="1600px">
-        <CollectionGroup
-          subtitle={subtitle}
-          title={title}
-          description={description}
-          products={products}
-          titleAlign={titleAlign}
-          cardWidth={cardWidth}
-          gap={gap}
-          aspectRatio={aspectRatio}
-          onProductClick={onProductClick}
-        />
-      </ContentInset>
+      <CollectionGroup
+        subtitle={subtitle}
+        title={title}
+        description={description}
+        products={products}
+        titleAlign={titleAlign}
+        columns={columns}
+        gap={gap}
+        aspectRatio={aspectRatio}
+        onProductClick={onProductClick}
+      />
     </Box>
   );
 };

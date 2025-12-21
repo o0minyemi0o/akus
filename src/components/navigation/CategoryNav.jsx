@@ -43,7 +43,7 @@ const CategoryNav = ({ onCategoryClick, sx, ...props }) => {
             variant="body2"
             sx={{
               fontFamily: '"Pretendard Variable", sans-serif',
-              fontSize: '0.875rem',
+              fontSize: '0.95rem',
               fontWeight: 500,
               letterSpacing: '0.05em',
               color: 'text.primary',

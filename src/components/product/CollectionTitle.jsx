@@ -45,7 +45,7 @@ const CollectionTitle = ({
         variant="h3"
         sx={{
           fontFamily: 'Georgia, "Times New Roman", serif',
-          fontSize: { xs: '2rem', md: '2.5rem' },
+          fontSize: { xs: '1.5rem', md: '1.75rem' },
           fontWeight: 400,
           letterSpacing: '0.02em',
           color: 'text.primary',
