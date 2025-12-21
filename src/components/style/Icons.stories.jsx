@@ -3,6 +3,7 @@ import { Home, Search, User, ShoppingBag, Heart, Menu, X, ChevronRight, ArrowRig
 
 export default {
   title: '1. Style/Icons',
+  tags: ['!autodocs'],
   parameters: {
     docs: {
       page: () => <IconsDoc />,
@@ -187,4 +188,6 @@ color: theme.palette.text.primary (기본)`}
   );
 };
 
-export const Default = {};
+export const Default = {
+  render: () => <IconsDoc />,
+};

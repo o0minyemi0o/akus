@@ -2,6 +2,7 @@ import { Box, Typography } from '@mui/material';
 
 export default {
   title: '1. Style/Typography',
+  tags: ['!autodocs'],
   parameters: {
     docs: {
       page: () => <TypographyDoc />,
@@ -216,4 +217,6 @@ const TypographyDoc = () => {
   );
 };
 
-export const Default = {};
+export const Default = {
+  render: () => <TypographyDoc />,
+};

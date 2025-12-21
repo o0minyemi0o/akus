@@ -1,5 +1,5 @@
 import { Box } from '@mui/material';
-import ProductCard from './ProductCard';
+import ProductCard from '../components/product/ProductCard';
 
 /**
  * ProductRow - 제품들을 가로로 나열하는 컴포넌트

@@ -2,6 +2,7 @@ import { Box, Typography } from '@mui/material';
 
 export default {
   title: '1. Style/Colors',
+  tags: ['!autodocs'],
   parameters: {
     docs: {
       page: () => <ColorsDoc />,
@@ -240,4 +241,6 @@ const ColorsDoc = () => {
   );
 };
 
-export const Default = {};
+export const Default = {
+  render: () => <ColorsDoc />,
+};

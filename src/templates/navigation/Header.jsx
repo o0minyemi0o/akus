@@ -27,7 +27,7 @@ const Header = ({ transparent = true, sx, ...props }) => {
           py: 2,
           display: 'flex',
           alignItems: 'center',
-          justifyContent: 'center',
+          justifyContent: 'flex-start',
         }}
       >
         <BrandLogo />
