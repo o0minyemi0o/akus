@@ -1,0 +1,152 @@
+description: akus 전용 Storybook 작성 가이드 (Simple & Practical)
+globs: "*.stories.jsx"
+alwaysApply: false
+---
+
+# akus Storybook Guide
+
+akus Storybook의 목적은
+컴포넌트를 만드는 사람과 쓰는 사람이 같은 기준을 공유하는 것이다.
+
+이 문서는 규칙 나열이 아니라 판단 기준을 제공한다.
+
+---
+
+## 1. Storybook 카테고리
+
+Storybook의 모든 스토리는 아래 5가지 중 하나로 분류한다.
+
+Style        → 디자인 기준 (토큰, 룰)
+Component    → 재사용 가능한 UI 하나
+Template     → 컴포넌트 조합 패턴
+Section      → 페이지의 한 영역
+Page         → 실제 페이지 단위
+
+### title 작성 규칙
+
+Style/Color
+Component/Button
+Template/ProductGrid
+Section/Hero
+Page/Main
+
+### 금지 사항
+
+- Component/Shared
+- Common, Misc, Etc
+
+판단이 애매한 경우
+혼자 재사용되면 Component
+
+---
+
+## 2. Component 스토리 규칙 (CRITICAL)
+
+Component 스토리는 설명이 아니라 실험 공간이다.
+
+### 필수 규칙
+
+- tags: ['autodocs'] 사용
+- Default 스토리는 반드시 1개
+- 모든 props는 Controls로 조작 가능해야 함
+- props 조합별 스토리 남발 금지
+
+### 기본 구조
+
+export default {
+  title: 'Component/Button',
+  component: Button,
+  tags: ['autodocs'],
+};
+
+export const Default = {
+  args: {
+    label: 'Button',
+    variant: 'primary',
+  },
+};
+
+### 베리에이션 규칙
+
+금지 예시:
+PrimarySmall
+PrimaryLarge
+SecondarySmall
+SecondaryLarge
+
+권장 방식:
+- Default + Controls
+- 정말 필요한 경우만 Variants 스토리 추가 (최대 3개)
+
+---
+
+## 3. Style 스토리 규칙
+
+Style 스토리는 컴포넌트가 아닌 문서이다.
+
+- autodocs 사용 금지
+- 직접 Doc 스토리 작성
+
+### Style 문서 필수 구성 (순서 고정)
+
+1. 한 줄 개요
+2. 토큰 구조 (theme 트리)
+3. 토큰 값 (테이블)
+4. 사용 예시 (MUI sx)
+5. Vibe Coding Prompt (AI용)
+
+위 항목 중 하나라도 빠지면
+akus Style 문서로 인정하지 않는다.
+
+---
+
+## 4. 문서 스타일 원칙
+
+akus Storybook은 쇼케이스가 아니라 기준서다.
+
+허용:
+- Table
+- Box
+- Typography
+- 코드 블록 (pre)
+
+금지:
+- Card / Paper
+- elevation, shadow
+- 마케팅 문구
+- 장식 목적의 UI
+
+---
+
+## 5. 스토리 개수 기준
+
+- Component: 1 ~ 3개
+- Style: 1개 (최대 3개)
+- Template / Section: 필요 최소한
+
+스토리가 많아질수록
+Storybook은 문서가 아니라 갤러리가 된다.
+
+---
+
+## 6. akus 판단 공식
+
+스토리 작성 또는 리뷰 시
+아래 질문 하나로 판단한다.
+
+이 컴포넌트를 처음 보는 팀원이
+Controls만 만져보고 이해할 수 있는가?
+
+YES → 올바른 스토리
+NO  → 구조가 잘못된 것
+
+---
+
+## 7. 요약
+
+- Component → 만져보게 만든다
+- Style → 기준을 남긴다
+- Storybook → 설명보다 판단을 돕는다
+
+akus Storybook은
+읽히는 문서가 아니라, 쓰이는 도구여야 한다.

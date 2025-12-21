@@ -1,0 +1,237 @@
+
+
+
+# Components
+
+akus 프로젝트는  
+**Component → Template → Section → Page** 구조를 따른다.
+
+재사용성보다  
+**절제된 분위기, 느린 리듬, 머무는 경험**을 우선한다.
+
+---
+
+## Components (Atomic)
+
+가장 작은 표현 단위.  
+의미를 가지지 않고 “톤”만 담당한다.
+
+### Typography
+
+- BrandWordmark  
+  브랜드 로고 타이포 “akus”  
+  (`components/typography/BrandWordmark.jsx`)
+
+- SectionTitle  
+  섹션 제목  
+  (`components/typography/SectionTitle.jsx`)
+
+- MottoText  
+  브랜드 문장 전용  
+  (`components/typography/MottoText.jsx`)
+
+- QuietParagraph  
+  최소 설명용 문단  
+  (`components/typography/QuietParagraph.jsx`)
+
+---
+
+### Media
+
+- StaticImage  
+  기본 이미지 컴포넌트  
+  (`components/media/StaticImage.jsx`)
+
+- ImageFrame  
+  이미지 비율 / 여백 제어  
+  (`components/media/ImageFrame.jsx`)
+
+❌ 캐로셀  
+❌ 비디오  
+❌ 자동 전환
+
+---
+
+### Navigation (Atomic)
+
+- BrandLogo  
+  텍스트 로고  
+  (`components/navigation/BrandLogo.jsx`)
+
+---
+
+## Templates (Layout)
+
+구조만 정의하고, 콘텐츠 의미는 가지지 않는다.
+
+### Layout
+
+- AppLayout  
+  전체 페이지 래퍼 (단일 스크롤)  
+  (`templates/layout/AppLayout.jsx`)
+
+- VerticalFlow  
+  섹션이 위에서 아래로 이어지는 기본 흐름  
+  (`templates/layout/VerticalFlow.jsx`)
+
+- FullBleed  
+  여백 없는 풀스크린 영역  
+  (`templates/layout/FullBleed.jsx`)
+
+- ContentInset  
+  좌우 여백이 있는 정적인 영역  
+  (`templates/layout/ContentInset.jsx`)
+
+---
+
+### Navigation
+
+- Header  
+  상단 고정 헤더  
+  (`templates/navigation/Header.jsx`)
+
+- CategoryNav  
+  TEXTILE / CERAMIC / CARE / TOOL  
+  스크롤 이동만 수행  
+  (`templates/navigation/CategoryNav.jsx`)
+
+❌ GNB  
+❌ Drawer  
+❌ 햄버거 메뉴
+
+---
+
+## Sections (Meaningful Blocks)
+
+하나의 메시지, 하나의 분위기를 책임진다.
+
+### Hero
+
+- HeroSection  
+  Hero 전체 래퍼  
+  (`sections/hero/HeroSection.jsx`)
+
+- HeroBackground  
+  desert hotel bathroom 키 비주얼  
+  (`sections/hero/HeroBackground.jsx`)
+
+- HeroBrandMark  
+  좌측 상단 브랜드 타이포  
+  (`sections/hero/HeroBrandMark.jsx`)
+
+❌ CTA  
+❌ 서브 카피  
+❌ 과한 인터랙션
+
+---
+
+### Brand
+
+- MottoSection  
+  브랜드 문장 단독 섹션  
+  (`sections/brand/MottoSection.jsx`)
+
+---
+
+### Category / Collection
+
+- CategorySection  
+  카테고리 개요  
+  (`sections/category/CategorySection.jsx`)
+
+- CategoryItem  
+  카테고리 이미지 + 이름  
+  (`sections/category/CategoryItem.jsx`)
+
+- CollectionSection  
+  전체 컬렉션 영역  
+  (`sections/collection/CollectionSection.jsx`)
+
+---
+
+### Product (Object)
+
+akus의 제품은 “상품”이 아니라 “오브제”다.
+
+- CollectionGroup  
+  카테고리별 묶음  
+  (`sections/collection/CollectionGroup.jsx`)
+
+- CollectionTitle  
+  카테고리 타이틀  
+  (`sections/collection/CollectionTitle.jsx`)
+
+- ProductRow  
+  수평 흐름의 제품 나열  
+  (`sections/product/ProductRow.jsx`)
+
+- ProductImage  
+  이미지 전용 컴포넌트  
+  (이름 / 가격 / 버튼 없음)  
+  (`sections/product/ProductImage.jsx`)
+
+❌ 카드 UI  
+❌ hover 강조  
+❌ 클릭 유도
+
+---
+
+### Footer
+
+- Footer  
+  페이지 하단  
+  (`sections/footer/Footer.jsx`)
+
+- LegalText  
+  저작권 및 최소 정보  
+  (`sections/footer/LegalText.jsx`)
+
+---
+
+## Pages
+
+Section의 조합만 담당하며  
+새로운 디자인 규칙을 만들지 않는다.
+
+- HomePage  
+  - HeroSection  
+  - CategorySection  
+  - MottoSection  
+  - CollectionSection  
+  - Footer  
+
+(`pages/HomePage.jsx`)
+
+---
+
+## Data (Hard-coded)
+
+초기 버전은 모든 데이터를 정적으로 관리한다.
+
+- content.js  
+  - motto  
+  - section titles  
+  - category labels
+
+- product.js  
+  - product id  
+  - image path  
+  - type (basin / mirror / lighting / textile / care / tool)  
+  - category mapping  
+  - display order
+
+❌ API  
+❌ CMS  
+❌ 실시간 상태
+
+---
+
+## Design Constraints
+
+- 설명이 늘어나면 실패
+- 선택지가 많아지면 긴장감이 사라짐
+- 쇼핑몰처럼 보이면 즉시 제거
+
+akus는  
+**구매 경험 이전에  
+머무는 경험을 만든다.**

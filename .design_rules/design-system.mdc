@@ -1,0 +1,54 @@
+---
+
+description: akus Design System Rules
+globs:
+alwaysApply: true
+---
+
+* **CRITICAL** 새로운 컴포넌트를 만들기 전에 반드시 기존 컴포넌트로 대체 가능한지 확인한다. 가능하면 최대한 재활용하며, 불필요한 중복 컴포넌트 생성을 금지한다.
+
+* **CRITICAL** 스토리북 Style 카테고리에 정의된 디자인 토큰(색상, 타이포그래피, 간격, 아이콘)을 최우선으로 사용한다. 임의의 값 하드코딩을 금지하고 반드시 theme 토큰을 참조한다.
+
+  * 색상: `primary.main`, `secondary.main`, `background.default` 등 `theme.palette` 사용
+  * 타이포그래피: `variant="h1"`, `variant="body1"` 등 `theme.typography` 사용
+  * 간격: `p: 2`, `m: 3`, `gap: 1` 등 `theme.spacing` 기반 값 사용
+  * 아이콘: `lucide-react` 라이브러리 우선 사용 (Storybook Icons 카테고리 참고)
+
+* **중요** 모든 기본 컴포넌트는 MUI 최신 버전을 기준으로 구현한다.
+
+* **중요** Grid 컴포넌트 사용 시 MUI v6 기준 API를 따른다. `Grid`는 반드시 `size` prop을 사용한다.
+
+* 모든 스타일링은 가능한 한 MUI의 `sx` prop을 사용한다. 외부 CSS 의존성을 최소화한다.
+
+* 수정 시 공통으로 사용 가능한 로직은 독립된 컴포넌트 또는 훅으로 분리하여 의존성을 낮춘다.
+
+* 새로운 기능 추가 또는 수정 시, 지시되지 않은 기존 컴포넌트의 형태·동작·레이아웃에 영향을 주지 않도록 주의한다.
+
+* 특별한 의도가 없는 경우, Google Material Design 가이드라인을 UX 기본 원칙으로 따른다.
+
+---
+
+### Grid 사용 예시 (MUI v6)
+
+```jsx
+export default function FullWidthGrid() {
+  return (
+    <Box sx={{ flexGrow: 1 }}>
+      <Grid container spacing={2}>
+        <Grid size={{ xs: 6, md: 8 }}>
+          <Item>xs=6 md=8</Item>
+        </Grid>
+        <Grid size={{ xs: 6, md: 4 }}>
+          <Item>xs=6 md=4</Item>
+        </Grid>
+        <Grid size={{ xs: 6, md: 4 }}>
+          <Item>xs=6 md=4</Item>
+        </Grid>
+        <Grid size={{ xs: 6, md: 8 }}>
+          <Item>xs=6 md=8</Item>
+        </Grid>
+      </Grid>
+    </Box>
+  );
+}
+```
