@@ -6,7 +6,6 @@ const sampleBrandStoryImages = [
   '/src/assets/product/item3.jpg',
   '/src/assets/product/item4.jpg',
   '/src/assets/product/item5.jpg',
-  '/src/assets/product/item6.jpg',
   '/src/assets/product/item7.jpg',
 ];
 
@@ -62,7 +61,7 @@ const sampleProducts = [
   },
   {
     id: 8,
-    image: '/src/assets/product/collection1.jpg',
+    image: '/src/assets/product/collection8.jpg',
     name: 'Ceramic Bowl',
     category: 'CERAMIC',
     price: '42,000',

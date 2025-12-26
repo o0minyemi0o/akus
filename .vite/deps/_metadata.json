@@ -1,0 +1,40 @@
+{
+  "hash": "64fad849",
+  "configHash": "36a82ce3",
+  "lockfileHash": "f59898cf",
+  "browserHash": "cd0573de",
+  "optimized": {
+    "react": {
+      "src": "../../node_modules/.pnpm/react@19.2.3/node_modules/react/index.js",
+      "file": "react.js",
+      "fileHash": "9cb7dcdf",
+      "needsInterop": true
+    },
+    "react-dom/client": {
+      "src": "../../node_modules/.pnpm/react-dom@19.2.3_react@19.2.3/node_modules/react-dom/client.js",
+      "file": "react-dom_client.js",
+      "fileHash": "9dd53bdf",
+      "needsInterop": true
+    },
+    "@mui/material/styles": {
+      "src": "../../node_modules/.pnpm/@mui+material@7.3.6_@emotion+react@11.14.0_@types+react@19.2.7_react@19.2.3__@emotion+s_0907c348f8d000677a2fa3c03f8c0f86/node_modules/@mui/material/esm/styles/index.js",
+      "file": "@mui_material_styles.js",
+      "fileHash": "fcb27e4a",
+      "needsInterop": false
+    },
+    "@mui/material/CssBaseline": {
+      "src": "../../node_modules/.pnpm/@mui+material@7.3.6_@emotion+react@11.14.0_@types+react@19.2.7_react@19.2.3__@emotion+s_0907c348f8d000677a2fa3c03f8c0f86/node_modules/@mui/material/esm/CssBaseline/index.js",
+      "file": "@mui_material_CssBaseline.js",
+      "fileHash": "6cfc4cbc",
+      "needsInterop": false
+    }
+  },
+  "chunks": {
+    "chunk-IERVTAU4": {
+      "file": "chunk-IERVTAU4.js"
+    },
+    "chunk-VDACGF22": {
+      "file": "chunk-VDACGF22.js"
+    }
+  }
+}
