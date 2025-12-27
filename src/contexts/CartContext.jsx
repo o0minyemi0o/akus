@@ -1,11 +1,19 @@
 import { createContext, useContext, useState, useEffect } from 'react';
+import { useAuth } from './AuthContext';
 
 const CartContext = createContext();
 
 export function CartProvider({ children }) {
-  const [items, setItems] = useState(() => {
-    // localStorage에서 장바구니 불러오기
-    const savedCart = localStorage.getItem('akus-cart');
+  const { user } = useAuth();
+
+  // 사용자별 localStorage 키 생성
+  const getCartKey = () => {
+    return user ? `akus-cart-${user.id}` : 'akus-cart';
+  };
+
+  const loadCart = () => {
+    const cartKey = getCartKey();
+    const savedCart = localStorage.getItem(cartKey);
     if (!savedCart) return [];
 
     try {
@@ -42,11 +50,21 @@ export function CartProvider({ children }) {
       console.warn('Failed to parse cart data:', e);
       return [];
     }
-  });
+  };
 
-  // 장바구니 변경 시 localStorage에 저장
+  const [items, setItems] = useState(loadCart);
+
+  // 사용자 변경 시 장바구니 다시 로드
   useEffect(() => {
-    localStorage.setItem('akus-cart', JSON.stringify(items));
+    setItems(loadCart());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [user]);
+
+  // 장바구니 변경 시 localStorage에 저장 (사용자별 키 사용)
+  useEffect(() => {
+    const cartKey = getCartKey();
+    localStorage.setItem(cartKey, JSON.stringify(items));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [items]);
 
   const addToCart = (product, options = {}, quantity = 1) => {
