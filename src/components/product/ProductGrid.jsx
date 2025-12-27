@@ -13,8 +13,8 @@ import ProductCard from './ProductCard';
  */
 const ProductGrid = ({
   products = [],
-  columns = { xs: 1, sm: 2, md: 2, lg: 3 },
-  spacing = { xs: 4, md: 6, lg: 8 },
+  columns = { xs: 4, sm: 2.4, md: 2.4 },
+  spacing = 2,
   onProductClick,
   sx,
   ...props

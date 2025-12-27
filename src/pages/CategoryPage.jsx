@@ -61,8 +61,8 @@ const CategoryPage = ({
           }}>
             <ProductGrid
               products={productsProp}
-              columns={{ xs: 1, sm: 2, md: 2, lg: 3 }}
-              spacing={{ xs: 3, md: 4, lg: 5 }}
+              columns={{ xs: 4, sm: 2.4, md: 2.4 }}
+              spacing={2}
               onProductClick={onProductClickProp}
             />
           </Box>
@@ -119,8 +119,8 @@ const CategoryPage = ({
       >
         <ProductGrid
           products={products}
-          columns={{ xs: 1, sm: 2, md: 2, lg: 3 }}
-          spacing={{ xs: 3, md: 4, lg: 5 }}
+          columns={{ xs: 4, sm: 2.4, md: 2.4 }}
+          spacing={2}
           onProductClick={handleProductClick}
         />
       </Box>
