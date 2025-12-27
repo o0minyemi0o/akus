@@ -13,6 +13,7 @@ const BrandLogo = ({ sx, ...props }) => {
         display: 'inline-block',
         cursor: 'pointer',
         lineHeight: 1,
+        pointerEvents: 'auto',
         ...sx,
       }}
     >

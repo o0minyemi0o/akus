@@ -13,7 +13,8 @@ const CategoryNav = ({ onCategoryClick, showLogo = true, sx, ...props }) => {
             position: 'fixed',
             left: 28,
             top: 32,
-            zIndex: 900,
+            zIndex: 1100,
+            pointerEvents: 'auto',
           }}
         >
           <BrandLogo />
@@ -33,6 +34,7 @@ const CategoryNav = ({ onCategoryClick, showLogo = true, sx, ...props }) => {
           display: 'flex',
           flexDirection: 'column',
           gap: 2,
+          pointerEvents: 'auto',
           ...sx,
         }}
       >

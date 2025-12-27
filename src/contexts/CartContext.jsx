@@ -18,7 +18,7 @@ export function CartProvider({ children }) {
 
           // 잘못된 형식: options에 quantity가 포함된 경우
           if (item.options && typeof item.options === 'object') {
-            const { quantity: optionsQuantity, color, size, ...restOptions } = item.options;
+            const { quantity: optionsQuantity, color, size } = item.options;
 
             // quantity가 options 안에 있으면 꺼내기
             const fixedItem = {

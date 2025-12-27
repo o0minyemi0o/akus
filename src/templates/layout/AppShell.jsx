@@ -38,20 +38,7 @@ const AppShell = ({
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column', width: '100vw', maxWidth: '100vw', overflow: 'hidden' }}>
       {/* Left Navigation Area - Fixed */}
-      {!hideCategoryNav && (
-        <Box
-          sx={{
-            width: 130,
-            position: 'fixed',
-            left: 0,
-            top: 0,
-            height: '100vh',
-            zIndex: 1000,
-          }}
-        >
-          <CategoryNav onCategoryClick={handleCategoryClick} />
-        </Box>
-      )}
+      {!hideCategoryNav && <CategoryNav onCategoryClick={handleCategoryClick} />}
 
       {/* Main Content Area with Left Margin */}
       <Box
