@@ -69,7 +69,7 @@ const sampleProducts = [
 ];
 
 export default {
-  title: '4. Pages/MainPage',
+  title: '5. Pages/MainPage',
   component: MainPage,
   parameters: {
     layout: 'fullscreen',
