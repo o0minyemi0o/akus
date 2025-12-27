@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
+import { useEffect } from 'react';
 import AppShell from './templates/layout/AppShell';
 import MainPage from './pages/MainPage';
 import ProductDetailPage from './pages/ProductDetailPage';
@@ -6,18 +7,34 @@ import CategoryPage from './pages/CategoryPage';
 import CartPage from './pages/CartPage';
 
 /**
+ * ScrollToTop - 페이지 전환 시 스크롤을 맨 위로 이동
+ */
+function ScrollToTop() {
+  const location = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
+
+  return null;
+}
+
+/**
  * AppContent - AppShell과 Routes를 연결
  */
 function AppContent() {
   return (
-    <AppShell>
-      <Routes>
-        <Route path="/" element={<MainPage />} />
-        <Route path="/category/:categoryId" element={<CategoryPage />} />
-        <Route path="/product/:productId" element={<ProductDetailPage />} />
-        <Route path="/cart" element={<CartPage />} />
-      </Routes>
-    </AppShell>
+    <>
+      <ScrollToTop />
+      <AppShell>
+        <Routes>
+          <Route path="/" element={<MainPage />} />
+          <Route path="/category/:categoryId" element={<CategoryPage />} />
+          <Route path="/product/:productId" element={<ProductDetailPage />} />
+          <Route path="/cart" element={<CartPage />} />
+        </Routes>
+      </AppShell>
+    </>
   );
 }
 
