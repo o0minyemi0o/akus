@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, useEffect } from 'react';
+import { createContext, useContext, useState, useEffect, useRef } from 'react';
 import { useAuth } from './AuthContext';
 
 const CartContext = createContext();
@@ -55,19 +55,30 @@ export function CartProvider({ children }) {
   const [items, setItems] = useState(loadCart);
 
   // 사용자 변경 시 장바구니 다시 로드
+  const userId = user?.id;
+  const prevUserIdRef = useRef(userId);
+
   useEffect(() => {
-    setItems(loadCart());
+    // userId가 실제로 변경되었을 때만 장바구니 다시 로드
+    if (prevUserIdRef.current !== userId) {
+      console.log('[CartContext] User changed, reloading cart');
+      const newCart = loadCart();
+      setItems(newCart);
+      prevUserIdRef.current = userId;
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [user]);
+  }, [userId]); // userId를 변수로 추출하여 사용
 
   // 장바구니 변경 시 localStorage에 저장 (사용자별 키 사용)
   useEffect(() => {
     const cartKey = getCartKey();
     localStorage.setItem(cartKey, JSON.stringify(items));
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [items]);
+  }, [items]); // items만 의존성으로
 
   const addToCart = (product, options = {}, quantity = 1) => {
+    console.log('[CartContext] addToCart called:', { productId: product.id, options, quantity });
+
     setItems((prev) => {
       // 동일한 제품과 옵션이 있는지 확인
       const existingItemIndex = prev.findIndex(
@@ -76,13 +87,24 @@ export function CartProvider({ children }) {
           JSON.stringify(item.options) === JSON.stringify(options)
       );
 
+      console.log('[CartContext] existingItemIndex:', existingItemIndex);
+
       if (existingItemIndex > -1) {
-        // 이미 있으면 수량 증가
-        const updated = [...prev];
-        updated[existingItemIndex].quantity += quantity;
+        // 이미 있으면 수량 증가 (객체도 새로 생성하여 불변성 유지)
+        const updated = prev.map((item, index) =>
+          index === existingItemIndex
+            ? { ...item, quantity: item.quantity + quantity }
+            : item
+        );
+        console.log('[CartContext] Updated quantity:', {
+          oldQuantity: prev[existingItemIndex].quantity,
+          addedQuantity: quantity,
+          newQuantity: updated[existingItemIndex].quantity
+        });
         return updated;
       } else {
         // 새 아이템 추가
+        console.log('[CartContext] Adding new item with quantity:', quantity);
         return [
           ...prev,
           {
