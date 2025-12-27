@@ -1,25 +1,42 @@
 import { Box, Typography } from '@mui/material';
+import BrandLogo from './BrandLogo';
 
 const categories = ['TEXTILE', 'CERAMIC', 'CARE', 'TOOL'];
 
-const CategoryNav = ({ onCategoryClick, sx, ...props }) => {
+const CategoryNav = ({ onCategoryClick, showLogo = true, sx, ...props }) => {
   return (
-    <Box
-      component="nav"
-      {...props}
-      sx={{
-        position: 'fixed',
-        left: 32,
-        top: '50%',
-        transform: 'translateY(-50%)',
-        zIndex: 900,
-        display: 'flex',
-        flexDirection: 'column',
-        gap: 3,
-        ...sx,
-      }}
-    >
-      {categories.map((category) => (
+    <>
+      {/* Brand Logo - Fixed at top */}
+      {showLogo && (
+        <Box
+          sx={{
+            position: 'fixed',
+            left: 28,
+            top: 32,
+            zIndex: 900,
+          }}
+        >
+          <BrandLogo />
+        </Box>
+      )}
+
+      {/* Category List - Fixed at middle */}
+      <Box
+        component="nav"
+        {...props}
+        sx={{
+          position: 'fixed',
+          left: 28,
+          top: '50%',
+          transform: 'translateY(-50%)',
+          zIndex: 900,
+          display: 'flex',
+          flexDirection: 'column',
+          gap: 2,
+          ...sx,
+        }}
+      >
+        {categories.map((category) => (
         <Box
           key={category}
           component="a"
@@ -53,7 +70,8 @@ const CategoryNav = ({ onCategoryClick, sx, ...props }) => {
           </Typography>
         </Box>
       ))}
-    </Box>
+      </Box>
+    </>
   );
 };
 

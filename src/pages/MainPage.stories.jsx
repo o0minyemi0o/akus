@@ -1,100 +1,38 @@
 import MainPage from './MainPage';
 
-const sampleBrandStoryImages = [
-  '/src/assets/product/item1.jpg',
-  '/src/assets/product/item2.jpg',
-  '/src/assets/product/item3.jpg',
-  '/src/assets/product/item4.jpg',
-  '/src/assets/product/item5.jpg',
-  '/src/assets/product/item7.jpg',
-];
-
-const sampleProducts = [
-  {
-    id: 1,
-    image: '/src/assets/product/collection1.jpg',
-    name: 'Stone Soap Dish',
-    category: 'CERAMIC',
-    price: '48,000',
-  },
-  {
-    id: 2,
-    image: '/src/assets/product/collection2.jpg',
-    name: 'Linen Bath Towel',
-    category: 'TEXTILE',
-    price: '62,000',
-  },
-  {
-    id: 3,
-    image: '/src/assets/product/collection3.jpg',
-    name: 'Plaster Wall Shelf',
-    category: 'TOOL',
-    price: '85,000',
-  },
-  {
-    id: 4,
-    image: '/src/assets/product/collection4.jpg',
-    name: 'Clay Vase',
-    category: 'CERAMIC',
-    price: '72,000',
-  },
-  {
-    id: 5,
-    image: '/src/assets/product/collection5.jpg',
-    name: 'Natural Soap Set',
-    category: 'CARE',
-    price: '28,000',
-  },
-  {
-    id: 6,
-    image: '/src/assets/product/collection6.jpg',
-    name: 'Stone Tray',
-    category: 'CERAMIC',
-    price: '55,000',
-  },
-  {
-    id: 7,
-    image: '/src/assets/product/collection7.jpg',
-    name: 'Cotton Robe',
-    category: 'TEXTILE',
-    price: '98,000',
-  },
-  {
-    id: 8,
-    image: '/src/assets/product/collection8.jpg',
-    name: 'Ceramic Bowl',
-    category: 'CERAMIC',
-    price: '42,000',
-  },
-];
-
 export default {
   title: '5. Pages/MainPage',
   component: MainPage,
   parameters: {
     layout: 'fullscreen',
+    docs: {
+      description: {
+        component: `
+# MainPage
+
+메인 랜딩 페이지
+
+## 구조
+
+- HeroSection: 히어로 이미지 + 자체 카테고리 네비게이션
+- BrandStorySection: 브랜드 스토리 + 가로 스크롤 이미지
+- ProductSection: 제품 컬렉션 그리드
+
+## 특징
+
+- AppShell의 좌측 CategoryNav는 MainPage에서만 숨김
+- HeroSection 내부에 자체 카테고리 네비게이션 포함
+- 전체 너비를 활용한 레이아웃
+        `,
+      },
+    },
   },
+  decorators: [],
 };
 
+/**
+ * Default: 기본 MainPage (실제 데이터 사용)
+ */
 export const Default = {
-  args: {
-    heroImage: '/src/assets/product/hero.jpg',
-    brandStoryText: 'Objects shaped by earth, designed for quiet rituals.',
-    brandStoryImages: sampleBrandStoryImages,
-    productSubtitle: 'NEW COLLECTION',
-    productTitle: 'Essential Objects',
-    productDescription: 'For spaces that stay still',
-    products: sampleProducts,
-  },
-};
-
-export const MinimalContent = {
-  args: {
-    heroImage: '/src/assets/product/hero.jpg',
-    brandStoryText: 'Quiet forms for daily rituals.',
-    brandStoryImages: sampleBrandStoryImages.slice(0, 4),
-    productSubtitle: 'ESSENTIAL',
-    productTitle: 'Core Collection',
-    products: sampleProducts,
-  },
+  render: () => <MainPage />,
 };

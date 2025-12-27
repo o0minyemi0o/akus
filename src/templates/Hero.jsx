@@ -1,15 +1,26 @@
 import { Box } from '@mui/material';
-import FullBleed from './layout/FullBleed';
 import StaticImage from '../components/media/StaticImage';
 
 const Hero = ({ imageSrc, children, sx, ...props }) => {
   return (
-    <FullBleed minHeight="100vh" {...props} sx={{ position: 'relative', overflow: 'hidden', ...sx }}>
+    <Box
+      {...props}
+      sx={{
+        position: 'relative',
+        width: '100%',
+        maxWidth: '100%',
+        height: '100vh',
+        overflow: 'hidden',
+        ...sx,
+      }}
+    >
       <Box
         sx={{
           width: '100%',
-          height: '100vh',
+          maxWidth: '100%',
+          height: '100%',
           position: 'relative',
+          overflow: 'hidden',
         }}
       >
         <StaticImage
@@ -18,7 +29,9 @@ const Hero = ({ imageSrc, children, sx, ...props }) => {
           sx={{
             width: '100%',
             height: '100%',
+            maxWidth: '100%',
             objectFit: 'cover',
+            objectPosition: 'center',
             display: 'block',
           }}
         />
@@ -39,7 +52,7 @@ const Hero = ({ imageSrc, children, sx, ...props }) => {
           {children}
         </Box>
       )}
-    </FullBleed>
+    </Box>
   );
 };
 

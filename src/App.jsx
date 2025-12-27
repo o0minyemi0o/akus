@@ -1,35 +1,45 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
+import AppShell from './templates/layout/AppShell';
+import MainPage from './pages/MainPage';
+import ProductDetailPage from './pages/ProductDetailPage';
+import CategoryPage from './pages/CategoryPage';
+import CartPage from './pages/CartPage';
 
-function App() {
-  const [count, setCount] = useState(0)
-
+/**
+ * AppContent - AppShell과 Routes를 연결
+ */
+function AppContent() {
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <AppShell>
+      <Routes>
+        <Route path="/" element={<MainPage />} />
+        <Route path="/category/:categoryId" element={<CategoryPage />} />
+        <Route path="/product/:productId" element={<ProductDetailPage />} />
+        <Route path="/cart" element={<CartPage />} />
+      </Routes>
+    </AppShell>
+  );
 }
 
-export default App
+/**
+ * App - akus 메인 애플리케이션
+ *
+ * 구조:
+ * - AppShell: 전역 레이아웃 (CategoryNav, Header, Footer)
+ * - Routes: 각 페이지별 라우팅
+ *
+ * 라우트 구조:
+ * - / : MainPage (메인 페이지) - Header, Footer, CategoryNav 모두 숨김
+ * - /category/:categoryId : CategoryPage (카테고리 페이지)
+ * - /product/:productId : ProductDetailPage (제품 상세)
+ * - /cart : CartPage (장바구니)
+ */
+function App() {
+  return (
+    <BrowserRouter>
+      <AppContent />
+    </BrowserRouter>
+  );
+}
+
+export default App;

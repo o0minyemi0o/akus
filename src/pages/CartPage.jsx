@@ -1,68 +1,96 @@
+import { useState } from 'react';
 import { Box } from '@mui/material';
 import PageWithNav from '../templates/layout/PageWithNav';
 import CartSection from '../sections/CartSection';
-import Footer from '../templates/Footer';
 
 /**
  * CartPage - 장바구니 페이지
  *
  * akus Minimal Cart:
- * - PageWithNav: 좌측 네비게이션 유지
+ * - AppShell: CategoryNav, Header, Footer 관리 (App.jsx에서 적용)
+ * - PageWithNav: 좌측 네비게이션 공간
  * - CartSection: 장바구니 아이템 + 주문 요약
- * - Footer: 전체 너비
  *
  * 구조:
  * 1. PageWithNav (128px 좌측 네비게이션 공간)
  * 2. CartSection
- * 3. Footer
  */
-const CartPage = ({
-  items = [],
-  subtotal = 0,
-  shipping = 0,
-  total = 0,
-  shippingNote,
-  onQuantityChange,
-  onRemove,
-  onCheckout,
-  ...props
-}) => {
-  return (
-    <Box {...props}>
-      {/* Main Content with Navigation */}
-      <PageWithNav>
-        {/* Cart Section */}
-        <Box
-          sx={{
-            px: { xs: 3, sm: 4, md: 6, lg: 8 },
-            py: { xs: 6, md: 8, lg: 10 },
-            minHeight: '60vh',
-          }}
-        >
-          <CartSection
-            items={items}
-            subtotal={subtotal}
-            shipping={shipping}
-            total={total}
-            shippingNote={shippingNote}
-            onQuantityChange={onQuantityChange}
-            onRemove={onRemove}
-            onCheckout={onCheckout}
-          />
-        </Box>
-      </PageWithNav>
+const CartPage = () => {
+  // TODO: 실제 장바구니 상태 관리로 교체 (Context API, Redux, Zustand 등)
+  const [items, setItems] = useState([
+    {
+      id: 1,
+      image: '/src/assets/product/collection1.jpg',
+      name: 'Stone Soap Dish',
+      category: 'CERAMIC',
+      price: 48000,
+      quantity: 1,
+      options: { color: 'Natural Stone' },
+    },
+    {
+      id: 2,
+      image: '/src/assets/product/collection2.jpg',
+      name: 'Linen Bath Towel',
+      category: 'TEXTILE',
+      price: 62000,
+      quantity: 2,
+      options: { color: 'Beige', size: 'Standard' },
+    },
+    {
+      id: 3,
+      image: '/src/assets/product/collection4.jpg',
+      name: 'Clay Vase',
+      category: 'CERAMIC',
+      price: 72000,
+      quantity: 1,
+      options: { size: 'Medium' },
+    },
+  ]);
 
-      {/* Footer - Full Width */}
+  const handleQuantityChange = (id, newQuantity) => {
+    setItems((prev) =>
+      prev.map((item) =>
+        item.id === id ? { ...item, quantity: newQuantity } : item
+      )
+    );
+  };
+
+  const handleRemove = (id) => {
+    setItems((prev) => prev.filter((item) => item.id !== id));
+  };
+
+  const handleCheckout = () => {
+    console.log('Checkout:', items);
+    alert('Proceeding to checkout...');
+    // TODO: 실제 체크아웃 페이지로 이동
+  };
+
+  const subtotal = items.reduce((sum, item) => sum + item.price * item.quantity, 0);
+  const shipping = subtotal >= 50000 ? 0 : 3000;
+  const total = subtotal + shipping;
+
+  return (
+    <PageWithNav>
+      {/* Cart Section */}
       <Box
         sx={{
-          width: '100%',
-          position: 'relative',
-          zIndex: 900,
+          px: { xs: 3, sm: 4, md: 6, lg: 8 },
+          py: { xs: 6, md: 8, lg: 10 },
+          minHeight: '60vh',
         }}
       >
-        <Footer />
+        <CartSection
+          items={items}
+          subtotal={subtotal}
+          shipping={shipping}
+          total={total}
+          shippingNote="Free shipping on orders over ₩50,000"
+          onQuantityChange={handleQuantityChange}
+          onRemove={handleRemove}
+          onCheckout={handleCheckout}
+        />
       </Box>
-    </Box>
+    </PageWithNav>
   );
 };
 

@@ -1,5 +1,4 @@
 import { Box } from '@mui/material';
-import BrandLogo from '../../components/navigation/BrandLogo';
 
 const Header = ({ transparent = true, sx, ...props }) => {
   return (
@@ -25,10 +24,10 @@ const Header = ({ transparent = true, sx, ...props }) => {
           pl: 4,
           display: 'flex',
           alignItems: 'center',
-          justifyContent: 'flex-start',
+          justifyContent: 'flex-end',
         }}
       >
-        <BrandLogo />
+        {/* Reserved for future use: search, cart, user menu */}
       </Box>
     </Box>
   );

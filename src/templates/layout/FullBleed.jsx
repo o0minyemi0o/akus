@@ -6,8 +6,10 @@ const FullBleed = ({ children, minHeight, sx, ...props }) => {
       {...props}
       sx={{
         width: '100%',
+        maxWidth: '100%',
         minHeight,
         position: 'relative',
+        overflow: 'hidden',
         ...sx,
       }}
     >

@@ -23,6 +23,8 @@ const ProductSection = ({
       component="section"
       {...props}
       sx={{
+        width: '100%',
+        maxWidth: '100%',
         py: { xs: 8, md: 12 },
         bgcolor: backgroundColor,
         ...sx,

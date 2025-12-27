@@ -7,15 +7,21 @@ export default {
   parameters: {
     layout: 'fullscreen',
   },
+  decorators: [
+    (Story) => (
+      <div style={{ margin: 0, padding: 0, width: '100vw', overflow: 'hidden' }}>
+        <Story />
+      </div>
+    ),
+  ],
 };
 
 export const Default = {
   args: {
     imageSrc: '/src/assets/product/hero.jpg',
     showBrandWordmark: false,
-    showCategoryNav: true,
-    headerTransparent: true,
-    onCategoryClick: (category) => console.log('Category clicked:', category),
+    showCategoryNav: false,
+    showHeader: false,
   },
 };
 

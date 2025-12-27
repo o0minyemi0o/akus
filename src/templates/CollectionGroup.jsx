@@ -27,6 +27,8 @@ const CollectionGroup = ({
     <Box
       {...props}
       sx={{
+        width: '100%',
+        maxWidth: '100%',
         ...sx,
       }}
     >

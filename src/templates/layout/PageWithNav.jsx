@@ -18,7 +18,7 @@ const PageWithNav = ({ children, navWidth = 138, sx, ...props }) => {
       sx={{
         position: 'relative',
         width: '100%',
-        maxWidth: '100vw',
+        maxWidth: '100%',
         overflow: 'hidden',
         ...sx,
       }}
@@ -42,7 +42,7 @@ const PageWithNav = ({ children, navWidth = 138, sx, ...props }) => {
         sx={{
           marginLeft: { xs: 0, md: `${navWidth}px` },
           width: { xs: '100%', md: `calc(100% - ${navWidth}px)` },
-          maxWidth: { xs: '100vw', md: `calc(100vw - ${navWidth}px)` },
+          maxWidth: '100%',
         }}
       >
         {children}
