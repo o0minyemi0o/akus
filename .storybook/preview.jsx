@@ -1,6 +1,7 @@
 import { ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import { BrowserRouter } from 'react-router-dom';
+import { CartProvider } from '../src/contexts/CartContext';
 import theme from '../src/styles/theme';
 import '../src/index.css';
 
@@ -22,10 +23,12 @@ const preview = {
   decorators: [
     (Story) => (
       <BrowserRouter>
-        <ThemeProvider theme={theme}>
-          <CssBaseline />
-          <Story />
-        </ThemeProvider>
+        <CartProvider>
+          <ThemeProvider theme={theme}>
+            <CssBaseline />
+            <Story />
+          </ThemeProvider>
+        </CartProvider>
       </BrowserRouter>
     ),
   ],

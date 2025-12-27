@@ -1,5 +1,6 @@
 import { Box } from '@mui/material';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
+import { useCart } from '../contexts/CartContext';
 import PageWithNav from '../templates/layout/PageWithNav';
 import ProductDetailSection from '../sections/ProductDetailSection';
 import { getProductById } from '../data/products';
@@ -29,6 +30,8 @@ const ProductDetailPage = ({
   onAddToCart: onAddToCartProp,
 }) => {
   const params = useParams();
+  const navigate = useNavigate();
+  const { addToCart } = useCart();
   const productId = params?.productId;
   const product = productId ? getProductById(productId) : null;
 
@@ -70,9 +73,27 @@ const ProductDetailPage = ({
   }
 
   const handleAddToCart = (selectedColor, selectedSize, quantity) => {
-    console.log('Add to cart:', { product, selectedColor, selectedSize, quantity });
-    // TODO: 실제 장바구니 상태 관리 구현
-    alert(`Added ${quantity} ${product.name} to cart`);
+    const options = {};
+    if (selectedColor) options.color = selectedColor;
+    if (selectedSize) options.size = selectedSize;
+
+    addToCart(
+      {
+        id: product.id,
+        name: product.name,
+        category: product.category,
+        price: product.price,
+        image: product.images[0],
+      },
+      options,
+      quantity
+    );
+
+    // 장바구니로 이동할지 물어보기
+    const goToCart = window.confirm(`Added ${quantity} ${product.name} to cart.\n\nGo to cart?`);
+    if (goToCart) {
+      navigate('/cart');
+    }
   };
 
   return (

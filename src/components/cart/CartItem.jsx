@@ -32,8 +32,7 @@ const CartItem = ({
         gap: { xs: 2, md: 3 },
         py: 4,
         borderBottom: '1px solid',
-        borderColor: 'secondary.main',
-        borderBottomOpacity: 0.3,
+        borderColor: (theme) => `${theme.palette.secondary.main}33`,
         position: 'relative',
         ...sx,
       }}
@@ -90,9 +89,9 @@ const CartItem = ({
           </Typography>
 
           {/* Options */}
-          {options && (
+          {options && typeof options === 'object' && (
             <Box sx={{ display: 'flex', gap: 1.5, flexWrap: 'wrap', mb: 1 }}>
-              {options.color && (
+              {options.color && typeof options.color === 'string' && (
                 <Typography
                   sx={{
                     fontSize: '0.75rem',
@@ -103,7 +102,7 @@ const CartItem = ({
                   Color: {options.color}
                 </Typography>
               )}
-              {options.size && (
+              {options.size && typeof options.size === 'string' && (
                 <Typography
                   sx={{
                     fontSize: '0.75rem',

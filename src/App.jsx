@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
+import { CartProvider } from './contexts/CartContext';
 import AppShell from './templates/layout/AppShell';
 import MainPage from './pages/MainPage';
 import ProductDetailPage from './pages/ProductDetailPage';
@@ -54,7 +55,9 @@ function AppContent() {
 function App() {
   return (
     <BrowserRouter>
-      <AppContent />
+      <CartProvider>
+        <AppContent />
+      </CartProvider>
     </BrowserRouter>
   );
 }

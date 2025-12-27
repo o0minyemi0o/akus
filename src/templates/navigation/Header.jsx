@@ -1,6 +1,13 @@
-import { Box } from '@mui/material';
+import { Box, IconButton, Badge } from '@mui/material';
+import { ShoppingBag } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
+import { useCart } from '../../contexts/CartContext';
 
 const Header = ({ transparent = true, sx, ...props }) => {
+  const navigate = useNavigate();
+  const { getTotalItems } = useCart();
+  const totalItems = getTotalItems();
+
   return (
     <Box
       component="header"
@@ -21,13 +28,36 @@ const Header = ({ transparent = true, sx, ...props }) => {
       <Box
         sx={{
           py: 2,
-          pl: 4,
+          pr: 4,
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'flex-end',
         }}
       >
-        {/* Reserved for future use: search, cart, user menu */}
+        {/* Cart Icon */}
+        <IconButton
+          onClick={() => navigate('/cart')}
+          sx={{
+            color: 'text.primary',
+            '&:hover': {
+              bgcolor: 'action.hover',
+            },
+          }}
+          aria-label="cart"
+        >
+          <Badge
+            badgeContent={totalItems}
+            color="primary"
+            sx={{
+              '& .MuiBadge-badge': {
+                bgcolor: 'primary.main',
+                color: 'background.paper',
+              },
+            }}
+          >
+            <ShoppingBag size={20} />
+          </Badge>
+        </IconButton>
       </Box>
     </Box>
   );

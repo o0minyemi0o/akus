@@ -23,11 +23,7 @@ const ProductOptions = ({
 
   const handleAddToCart = () => {
     if (onAddToCart) {
-      onAddToCart({
-        color: selectedColor,
-        size: selectedSize,
-        quantity,
-      });
+      onAddToCart(selectedColor, selectedSize, quantity);
     }
   };
 

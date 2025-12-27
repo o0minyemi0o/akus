@@ -51,16 +51,23 @@ export const Default = {
     // eslint-disable-next-line react-hooks/rules-of-hooks
     const [items, setItems] = useState(sampleCartItems);
 
-    const handleQuantityChange = (id, newQuantity) => {
+    const handleQuantityChange = (id, options, newQuantity) => {
       setItems((prev) =>
         prev.map((item) =>
-          item.id === id ? { ...item, quantity: newQuantity } : item
+          item.id === id && JSON.stringify(item.options) === JSON.stringify(options)
+            ? { ...item, quantity: newQuantity }
+            : item
         )
       );
     };
 
-    const handleRemove = (id) => {
-      setItems((prev) => prev.filter((item) => item.id !== id));
+    const handleRemove = (id, options) => {
+      setItems((prev) =>
+        prev.filter(
+          (item) =>
+            !(item.id === id && JSON.stringify(item.options) === JSON.stringify(options))
+        )
+      );
     };
 
     const subtotal = items.reduce((sum, item) => sum + item.price * item.quantity, 0);
@@ -92,16 +99,23 @@ export const SingleItem = {
     // eslint-disable-next-line react-hooks/rules-of-hooks
     const [items, setItems] = useState([sampleCartItems[0]]);
 
-    const handleQuantityChange = (id, newQuantity) => {
+    const handleQuantityChange = (id, options, newQuantity) => {
       setItems((prev) =>
         prev.map((item) =>
-          item.id === id ? { ...item, quantity: newQuantity } : item
+          item.id === id && JSON.stringify(item.options) === JSON.stringify(options)
+            ? { ...item, quantity: newQuantity }
+            : item
         )
       );
     };
 
-    const handleRemove = (id) => {
-      setItems((prev) => prev.filter((item) => item.id !== id));
+    const handleRemove = (id, options) => {
+      setItems((prev) =>
+        prev.filter(
+          (item) =>
+            !(item.id === id && JSON.stringify(item.options) === JSON.stringify(options))
+        )
+      );
     };
 
     const subtotal = items.reduce((sum, item) => sum + item.price * item.quantity, 0);
@@ -149,6 +163,7 @@ export const LargeOrder = {
         category: 'CARE',
         price: 28000,
         quantity: 3,
+        options: {},
       },
       {
         id: 5,
@@ -157,19 +172,27 @@ export const LargeOrder = {
         category: 'CERAMIC',
         price: 55000,
         quantity: 2,
+        options: {},
       },
     ]);
 
-    const handleQuantityChange = (id, newQuantity) => {
+    const handleQuantityChange = (id, options, newQuantity) => {
       setItems((prev) =>
         prev.map((item) =>
-          item.id === id ? { ...item, quantity: newQuantity } : item
+          item.id === id && JSON.stringify(item.options) === JSON.stringify(options)
+            ? { ...item, quantity: newQuantity }
+            : item
         )
       );
     };
 
-    const handleRemove = (id) => {
-      setItems((prev) => prev.filter((item) => item.id !== id));
+    const handleRemove = (id, options) => {
+      setItems((prev) =>
+        prev.filter(
+          (item) =>
+            !(item.id === id && JSON.stringify(item.options) === JSON.stringify(options))
+        )
+      );
     };
 
     const subtotal = items.reduce((sum, item) => sum + item.price * item.quantity, 0);

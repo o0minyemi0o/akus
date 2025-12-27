@@ -85,9 +85,9 @@ const CartSection = ({
 
             {/* Cart Items List */}
             <Box>
-              {items.map((item) => (
+              {items.map((item, index) => (
                 <CartItem
-                  key={item.id}
+                  key={`${item.id}-${index}`}
                   image={item.image}
                   name={item.name}
                   category={item.category}
@@ -95,9 +95,9 @@ const CartSection = ({
                   quantity={item.quantity}
                   options={item.options}
                   onQuantityChange={(newQuantity) =>
-                    onQuantityChange?.(item.id, newQuantity)
+                    onQuantityChange?.(item.id, item.options, newQuantity)
                   }
-                  onRemove={() => onRemove?.(item.id)}
+                  onRemove={() => onRemove?.(item.id, item.options)}
                 />
               ))}
             </Box>

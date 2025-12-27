@@ -12,6 +12,10 @@ const BrandWordmark = ({ sx, ...props }) => {
         letterSpacing: '0.05em',
         color: 'text.primary',
         textTransform: 'lowercase',
+        lineHeight: 1,
+        display: 'inline-block',
+        m: 0,
+        p: 0,
         ...sx,
       }}
     >
