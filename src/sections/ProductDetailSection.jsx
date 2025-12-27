@@ -34,9 +34,9 @@ const ProductDetailSection = ({
         ...sx,
       }}
     >
-      <Grid container spacing={{ xs: 4, md: 6, lg: 8 }}>
+      <Grid container spacing={{ xs: 4, md: 3, lg: 4 }}>
         {/* Left: Image Gallery */}
-        <Grid size={{ xs: 12, md: 6, lg: 5 }}>
+        <Grid size={{ xs: 12, md: 6, lg: 6 }}>
           <ProductImageGallery
             images={images}
             aspectRatio="3/4"
@@ -50,11 +50,12 @@ const ProductDetailSection = ({
         </Grid>
 
         {/* Right: Product Info */}
-        <Grid size={{ xs: 12, md: 6, lg: 6 }}>
+        <Grid size={{ xs: 12, md: 6, lg: 5 }}>
           <Box
             sx={{
               pt: { xs: 2, md: 4 },
               pb: 8,
+              maxWidth: { md: '400px', lg: '420px' },
             }}
           >
             {/* Basic Info */}
