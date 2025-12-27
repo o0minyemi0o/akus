@@ -46,7 +46,6 @@ const AppShell = ({
             left: 0,
             top: 0,
             height: '100vh',
-            bgcolor: 'background.default',
             zIndex: 1000,
           }}
         >

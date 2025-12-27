@@ -44,8 +44,8 @@ const MainPage = (props) => {
     price: product.price.toLocaleString(),
   }));
 
-  const handleProductClick = (productId) => {
-    navigate(`/product/${productId}`);
+  const handleProductClick = (product) => {
+    navigate(`/product/${product.id}`);
   };
 
   return (

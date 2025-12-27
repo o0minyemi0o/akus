@@ -36,20 +36,21 @@ const ProductDetailSection = ({
     >
       <Grid container spacing={{ xs: 4, md: 6, lg: 8 }}>
         {/* Left: Image Gallery */}
-        <Grid size={{ xs: 12, md: 7, lg: 8 }}>
+        <Grid size={{ xs: 12, md: 6, lg: 5 }}>
           <ProductImageGallery
             images={images}
-            aspectRatio="4/5"
+            aspectRatio="3/4"
             sx={{
               position: 'sticky',
               top: 0,
               pt: { xs: 0, md: 4 },
+              maxWidth: { md: '450px', lg: '500px' },
             }}
           />
         </Grid>
 
         {/* Right: Product Info */}
-        <Grid size={{ xs: 12, md: 5, lg: 4 }}>
+        <Grid size={{ xs: 12, md: 6, lg: 6 }}>
           <Box
             sx={{
               pt: { xs: 2, md: 4 },
@@ -62,7 +63,7 @@ const ProductDetailSection = ({
               category={category}
               price={price}
               description={description}
-              sx={{ mb: 6 }}
+              sx={{ mb: 4 }}
             />
 
             {/* Options (if provided) */}
@@ -71,7 +72,7 @@ const ProductDetailSection = ({
                 colors={colors}
                 sizes={sizes}
                 onAddToCart={onAddToCart}
-                sx={{ mb: 6 }}
+                sx={{ mb: 4 }}
               />
             )}
 

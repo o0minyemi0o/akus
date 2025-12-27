@@ -28,45 +28,13 @@ const CategoryHeader = ({
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'flex-start',
-        px: { xs: 3, sm: 4, md: 6, lg: 8 },
+        px: { xs: 3, sm: 4, md: 3, lg: 4 },
         py: { xs: 6, md: 8, lg: 10 },
-        bgcolor: backgroundImage ? 'transparent' : 'background.paper',
+        bgcolor: 'background.paper',
         overflow: 'hidden',
         ...sx,
       }}
     >
-      {/* Background Image (optional) */}
-      {backgroundImage && (
-        <>
-          <Box
-            sx={{
-              position: 'absolute',
-              top: 0,
-              left: 0,
-              width: '100%',
-              height: '100%',
-              backgroundImage: `url(${backgroundImage})`,
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
-              opacity: 0.15,
-              zIndex: 0,
-            }}
-          />
-          {/* Subtle gradient overlay */}
-          <Box
-            sx={{
-              position: 'absolute',
-              top: 0,
-              left: 0,
-              width: '100%',
-              height: '100%',
-              background: 'linear-gradient(to bottom, rgba(244, 241, 236, 0.6), rgba(244, 241, 236, 0.9))',
-              zIndex: 1,
-            }}
-          />
-        </>
-      )}
-
       {/* Content */}
       <Box
         sx={{

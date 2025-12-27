@@ -44,27 +44,27 @@ const ProductOptions = ({
     >
       {/* Color Selection */}
       {colors && colors.length > 0 && (
-        <Box sx={{ mb: 4 }}>
+        <Box sx={{ mb: 3 }}>
           <Typography
             sx={{
-              fontSize: '0.6875rem',
+              fontSize: '0.625rem',
               fontWeight: 400,
               letterSpacing: '0.15em',
               textTransform: 'uppercase',
               color: 'secondary.main',
-              mb: 2,
+              mb: 1.5,
             }}
           >
             Color
           </Typography>
-          <Box sx={{ display: 'flex', gap: 1.5 }}>
+          <Box sx={{ display: 'flex', gap: 1 }}>
             {colors.map((color) => (
               <Box
                 key={color.value}
                 onClick={() => setSelectedColor(color.value)}
                 sx={{
-                  width: 40,
-                  height: 40,
+                  width: 36,
+                  height: 36,
                   bgcolor: color.hex || 'background.paper',
                   border: '1px solid',
                   borderColor:
@@ -85,15 +85,15 @@ const ProductOptions = ({
 
       {/* Size Selection */}
       {sizes && sizes.length > 0 && (
-        <Box sx={{ mb: 4 }}>
+        <Box sx={{ mb: 3 }}>
           <Typography
             sx={{
-              fontSize: '0.6875rem',
+              fontSize: '0.625rem',
               fontWeight: 400,
               letterSpacing: '0.15em',
               textTransform: 'uppercase',
               color: 'secondary.main',
-              mb: 2,
+              mb: 1.5,
             }}
           >
             Size
@@ -104,15 +104,15 @@ const ProductOptions = ({
                 key={size.value}
                 onClick={() => setSelectedSize(size.value)}
                 sx={{
-                  px: 3,
-                  py: 1.5,
+                  px: 2.5,
+                  py: 1.25,
                   border: '1px solid',
                   borderColor:
                     selectedSize === size.value ? 'primary.main' : 'secondary.main',
                   bgcolor:
                     selectedSize === size.value ? 'primary.main' : 'transparent',
                   color: selectedSize === size.value ? 'background.default' : 'primary.main',
-                  fontSize: '0.875rem',
+                  fontSize: '0.8125rem',
                   letterSpacing: '0.05em',
                   cursor: 'pointer',
                   transition: 'all 0.2s ease',
@@ -131,15 +131,15 @@ const ProductOptions = ({
       )}
 
       {/* Quantity Selector */}
-      <Box sx={{ mb: 4 }}>
+      <Box sx={{ mb: 3 }}>
         <Typography
           sx={{
-            fontSize: '0.6875rem',
+            fontSize: '0.625rem',
             fontWeight: 400,
             letterSpacing: '0.15em',
             textTransform: 'uppercase',
             color: 'secondary.main',
-            mb: 2,
+            mb: 1.5,
           }}
         >
           Quantity

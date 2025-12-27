@@ -31,7 +31,6 @@ const PageWithNav = ({ children, navWidth = 138, sx, ...props }) => {
           left: 0,
           bottom: 0,
           width: { xs: 0, md: navWidth },
-          bgcolor: 'background.default',
           zIndex: 800,
           pointerEvents: 'none',
         }}

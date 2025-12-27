@@ -30,12 +30,12 @@ const ProductInfo = ({
           component="span"
           sx={{
             display: 'inline-block',
-            fontSize: '0.6875rem', // 11px
+            fontSize: '0.625rem', // 10px
             fontWeight: 400,
             letterSpacing: '0.15em',
             textTransform: 'uppercase',
             color: 'secondary.main',
-            mb: 2,
+            mb: 1.5,
           }}
         >
           {category}
@@ -47,11 +47,11 @@ const ProductInfo = ({
         variant="h4"
         component="h1"
         sx={{
-          fontSize: { xs: '1.75rem', md: '2rem' },
+          fontSize: { xs: '1.5rem', md: '1.75rem' },
           fontWeight: 400,
           lineHeight: 1.3,
           color: 'primary.main',
-          mb: 3,
+          mb: 2,
         }}
       >
         {name}
@@ -61,11 +61,11 @@ const ProductInfo = ({
       {price && (
         <Typography
           sx={{
-            fontSize: '1.125rem',
+            fontSize: '1rem',
             fontWeight: 400,
             letterSpacing: '0.02em',
             color: 'primary.main',
-            mb: 4,
+            mb: 3,
           }}
         >
           ₩{typeof price === 'number' ? price.toLocaleString() : price}
@@ -76,7 +76,7 @@ const ProductInfo = ({
       {description && (
         <Typography
           sx={{
-            fontSize: '0.9375rem', // 15px
+            fontSize: '0.875rem', // 14px
             fontWeight: 300,
             lineHeight: 1.6,
             letterSpacing: '0.01em',

@@ -46,7 +46,7 @@ const CategoryPage = ({
             description={categoryDescription}
             backgroundImage={categoryBackgroundImage}
           />
-          <Box sx={{ px: { xs: 3, sm: 4, md: 6, lg: 8 }, py: { xs: 6, md: 8, lg: 10 } }}>
+          <Box sx={{ px: { xs: 3, sm: 4, md: 3, lg: 4 }, py: { xs: 6, md: 8, lg: 10 } }}>
             <ProductGrid
               products={productsProp}
               columns={{ xs: 1, sm: 2, md: 2, lg: 3 }}
@@ -92,7 +92,7 @@ const CategoryPage = ({
       {/* Product Grid */}
       <Box
         sx={{
-          px: { xs: 3, sm: 4, md: 6, lg: 8 },
+          px: { xs: 3, sm: 4, md: 3, lg: 4 },
           py: { xs: 6, md: 8, lg: 10 },
         }}
       >
