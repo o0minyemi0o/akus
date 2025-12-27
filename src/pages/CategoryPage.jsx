@@ -45,12 +45,24 @@ const CategoryPage = ({
             title={categoryTitle}
             description={categoryDescription}
             backgroundImage={categoryBackgroundImage}
+            sx={{
+              position: 'relative',
+              left: { xs: 0, md: '-80px' },
+              width: { xs: '100%', md: 'calc(100% + 80px)' },
+            }}
           />
-          <Box sx={{ px: { xs: 3, sm: 4, md: 3, lg: 4 }, py: { xs: 6, md: 8, lg: 10 } }}>
+          <Box sx={{
+            position: 'relative',
+            left: { xs: 0, md: '-40px' },
+            width: { xs: '100%', md: 'calc(100% + 40px)' },
+            px: { xs: 3, sm: 4, md: 0, lg: 0 },
+            pr: { xs: 3, sm: 4, md: 12, lg: 14 },
+            py: { xs: 6, md: 8, lg: 10 }
+          }}>
             <ProductGrid
               products={productsProp}
               columns={{ xs: 1, sm: 2, md: 2, lg: 3 }}
-              spacing={{ xs: 4, md: 6, lg: 8 }}
+              spacing={{ xs: 3, md: 4, lg: 5 }}
               onProductClick={onProductClickProp}
             />
           </Box>
@@ -87,19 +99,28 @@ const CategoryPage = ({
         title={category.title}
         description={category.description}
         backgroundImage={category.backgroundImage}
+        sx={{
+          position: 'relative',
+          left: { xs: 0, md: '-80px' },
+          width: { xs: '100%', md: 'calc(100% + 80px)' },
+        }}
       />
 
       {/* Product Grid */}
       <Box
         sx={{
-          px: { xs: 3, sm: 4, md: 3, lg: 4 },
+          position: 'relative',
+          left: { xs: 0, md: '-40px' },
+          width: { xs: '100%', md: 'calc(100% + 40px)' },
+          px: { xs: 3, sm: 4, md: 0, lg: 0 },
+          pr: { xs: 3, sm: 4, md: 12, lg: 14 },
           py: { xs: 6, md: 8, lg: 10 },
         }}
       >
         <ProductGrid
           products={products}
           columns={{ xs: 1, sm: 2, md: 2, lg: 3 }}
-          spacing={{ xs: 4, md: 6, lg: 8 }}
+          spacing={{ xs: 3, md: 4, lg: 5 }}
           onProductClick={handleProductClick}
         />
       </Box>

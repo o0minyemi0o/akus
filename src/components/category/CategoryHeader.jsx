@@ -28,7 +28,7 @@ const CategoryHeader = ({
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'flex-start',
-        px: { xs: 3, sm: 4, md: 3, lg: 4 },
+        px: { xs: 3, sm: 4, md: 10, lg: 12 },
         py: { xs: 6, md: 8, lg: 10 },
         bgcolor: 'background.paper',
         overflow: 'hidden',
@@ -48,7 +48,7 @@ const CategoryHeader = ({
           variant="h1"
           component="h1"
           sx={{
-            fontSize: { xs: '2.5rem', md: '3.5rem', lg: '4rem' },
+            fontSize: { xs: '1.5rem', md: '2.0rem', lg: '2.5rem' },
             fontWeight: 400,
             lineHeight: 1.2,
             letterSpacing: '0.02em',
@@ -63,7 +63,7 @@ const CategoryHeader = ({
         {description && (
           <Typography
             sx={{
-              fontSize: { xs: '1rem', md: '1.125rem' },
+              fontSize: { xs: '0.875rem', md: '1rem' },
               fontWeight: 300,
               lineHeight: 1.6,
               letterSpacing: '0.01em',
